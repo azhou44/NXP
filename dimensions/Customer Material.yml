@@ -1,0 +1,21 @@
+unique_name: Customer Material
+object_type: dimension
+label: Customer Material
+description: |-
+  - DimCustomerMaterial
+  - vw_dimcustomermaterial
+hierarchies:
+  - unique_name: Customer Material Attributes
+    label: Customer Material Attributes
+    levels:
+      - unique_name: Part 12NC
+level_attributes:
+  - unique_name: Part 12NC
+    label: Part 12NC
+    contains_unique_names: false
+    dataset: vw_dimcustomermaterial
+    is_unique_key: false
+    key_columns:
+      - part_12nc
+    name_column: part_12nc
+type: standard

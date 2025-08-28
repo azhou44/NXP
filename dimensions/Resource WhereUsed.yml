@@ -1,0 +1,18 @@
+unique_name: Resource WhereUsed
+object_type: dimension
+label: Resource WhereUsed
+hierarchies:
+  - unique_name: Resource WhereUsed Hierarchy
+    label: Resource WhereUsed Hierarchy
+    levels:
+      - unique_name: Resource WhereUsed Level
+level_attributes:
+  - unique_name: Resource WhereUsed Level
+    label: Resource WhereUsed Level
+    contains_unique_names: false
+    dataset: dimresourcewhereused
+    is_unique_key: false
+    key_columns:
+      - RESOURCE_KEY
+    name_column: RESOURCE_KEY
+type: standard

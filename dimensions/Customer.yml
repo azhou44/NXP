@@ -1,0 +1,23 @@
+unique_name: Customer
+object_type: dimension
+label: Customer
+description: |-
+  - DimCustomerInfo
+  - vw_dimcustomerinfo_dimension
+hierarchies:
+  - unique_name: Customer Attributes
+    label: Customer Attributes
+    description: DimCustomerInfoHierarchy
+    levels:
+      - unique_name: Customer Key
+level_attributes:
+  - unique_name: Customer Key
+    label: Customer Key
+    description: DimCustomerInfo Level
+    contains_unique_names: false
+    dataset: vw_dimcustomerinfo
+    is_unique_key: true
+    key_columns:
+      - Sale_org_sold_ship_key
+    name_column: Sale_org_sold_ship_key
+type: standard

@@ -1,0 +1,8 @@
+unique_name: Del Inquent Cp Forecast Net Net
+object_type: metric
+label: Del Inquent Cp Forecast Net Net
+description: FactCPFcst
+calculation_method: sum
+column: Delinquent_Forecast_Net_Net_In_GC
+dataset: vw_factcpfcst_rddunconfirm
+format: $#,##0;-$#,##0

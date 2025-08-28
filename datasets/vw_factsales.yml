@@ -1,0 +1,47 @@
+unique_name: vw_factsales
+object_type: dataset
+label: vw_factsales
+description: FactSales
+columns:
+  - name: Part_12nc
+    data_type: string
+  - name: Blank
+    data_type: int
+  - name: Billing_Date
+    data_type: date
+  - name: DATEVALUE
+    data_type: date
+  - name: Sold_To
+    data_type: string
+  - name: Bill_To
+    data_type: string
+  - name: Ship_To
+    data_type: string
+  - name: Payer
+    data_type: string
+  - name: Blend_Origin
+    data_type: string
+  - name: Billing_Qty
+    data_type: decimal(19,3)
+  - name: Billing_Type
+    data_type: string
+  - name: Sales_Organization_Code
+    data_type: string
+  - name: Requirement_Qty
+    data_type: decimal(19,2)
+  - name: Sales_Net_Net_In_Gc
+    data_type: decimal(19,2)
+  - name: Sales_Net_In_Gc
+    data_type: decimal(19,2)
+  - name: Am_Pm_Flag
+    data_type: string
+  - name: Sales_Net_Net_AM
+    data_type: decimal(19,2)
+  - name: Sales_Net_AM
+    data_type: decimal(19,2)
+  - name: Billing_Qty_AM
+    data_type: decimal(19,3)
+  - name: Engine_Group
+    data_type: string
+connection_id: con_1dp_scobi_cubes_dev_bpi
+table: vw_factsales

@@ -1,0 +1,8 @@
+unique_name: OB non-Delinq Net Net
+object_type: metric
+label: OB non-Delinq Net Net
+description: OrderBook
+calculation_method: sum
+column: Non_Delq_Net_Net_In_Gc
+dataset: vw_factob_rddunconfirm
+format: $#,##0;($#,##0)

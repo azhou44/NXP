@@ -1,0 +1,21 @@
+unique_name: DimMaterial
+object_type: dimension
+label: DimMaterial
+description: |-
+  - DimMaterial
+  - vw_dimmaterialfinal_dimension
+hierarchies:
+  - unique_name: Dim Material Attributes
+    label: Dim Material Attributes
+    levels:
+      - unique_name: Part 12NC
+level_attributes:
+  - unique_name: Part 12NC
+    label: Part 12NC
+    contains_unique_names: false
+    dataset: vw_dimmaterialfinal
+    is_unique_key: false
+    key_columns:
+      - Part_12NC
+    name_column: Part_12NC
+type: standard

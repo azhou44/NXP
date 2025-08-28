@@ -1,0 +1,213 @@
+unique_name: BizPlan_AtScale_V2
+object_type: model
+label: BizPlan_AtScale_V2
+dimensions: []
+metrics:
+  - unique_name: Delinquent Total OB Net Net
+    folder: Delinquent Net Net
+  - unique_name: Sales Net Net
+  - unique_name: OB non-Delinq Net Net
+  - unique_name: CP Forecast Net Net
+  - unique_name: Del Inquent Cp Forecast Net Net
+  - unique_name: Last Received Backlog Net Net
+relationships:
+  - unique_name: vw_factob_rddunconfirm_DATEVALUE_to_Date_Query_Dt
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - DATEVALUE
+    to:
+      dimension: Date
+      level: Query_Dt
+  - unique_name: >-
+      vw_factob_rddunconfirm_Part_12NC_to_DimCustomerMaterial_DimCustomerMaterial
+      Level
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Part_12NC
+    to:
+      dimension: Customer Material
+      level: Part 12NC
+  - unique_name: >-
+      vw_factob_rddunconfirm_Sales_Organization_to_DimCustomerInfo_DimCustomerInfo
+      Level
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Sales_Organization
+    to:
+      dimension: Customer
+      level: Customer Key
+  - unique_name: vw_factob_rddunconfirm_Snapshot_Date_to_Run Date_Run Date Level
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Snapshot_Date
+    to:
+      dimension: Run Date
+      level: Run Date
+  - unique_name: vw_factob_rddunconfirm_Blend_Origin_to_Blend Orgin_Blend Orgin Level
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Blend_Origin
+    to:
+      dimension: Blend Orgin
+      level: Blend Orgin
+  - unique_name: >-
+      vw_factob_rddunconfirm_Sales_Document_Type_to_DocumentType_Sales Document
+      Key
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Sales_Document_Type
+    to:
+      dimension: DocumentType
+      level: Sales Document Key
+  - unique_name: ds_m2m_resource_material_resource_key_Resource_Resource Level
+    from:
+      dataset: ds_m2m_resource_material
+      join_columns:
+        - Resource_Key
+    to:
+      dimension: Resource
+      level: Resource Level
+  - unique_name: ds_m2m_resource_material_Part_12NC_to_Material_DimCustomerMaterial Level
+    from:
+      dataset: ds_m2m_resource_material
+      join_columns:
+        - Part_12NC
+    to:
+      dimension: Customer Material
+      level: Part 12NC
+  - unique_name: vw_factsales_Billing_Date_to_Date_Query_Dt
+    from:
+      dataset: vw_factsales
+      join_columns:
+        - Billing_Date
+    to:
+      dimension: Date
+      level: Query_Dt
+  - unique_name: vw_factsales_Blend_Origin_to_Blend Orgin_Blend Orgin
+    from:
+      dataset: vw_factsales
+      join_columns:
+        - Blend_Origin
+    to:
+      dimension: Blend Orgin
+      level: Blend Orgin
+  - unique_name: vw_factsales_Part_12nc_to_Material_Part 12NC
+    from:
+      dataset: vw_factsales
+      join_columns:
+        - Part_12nc
+    to:
+      dimension: Customer Material
+      level: Part 12NC
+  - unique_name: vw_factsales_Billing_Type_to_DocumentType_Sales Document Key
+    from:
+      dataset: vw_factsales
+      join_columns:
+        - Billing_Type
+    to:
+      dimension: DocumentType
+      level: Sales Document Key
+  - unique_name: vw_factsales_Part_12nc_to_DimMaterial_Part 12NC
+    from:
+      dataset: vw_factsales
+      join_columns:
+        - Part_12nc
+    to:
+      dimension: DimMaterial
+      level: Part 12NC
+  - unique_name: vw_factob_rddunconfirm_Part_12NC_to_DimMaterial_Part 12NC
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Part_12NC
+    to:
+      dimension: DimMaterial
+      level: Part 12NC
+  - unique_name: vw_factcpfcst_rddunconfirm_Fcst_Weekly_Date_to_Date_Query_Dt
+    from:
+      dataset: vw_factcpfcst_rddunconfirm
+      join_columns:
+        - Fcst_Weekly_Date
+    to:
+      dimension: Date
+      level: Query_Dt
+  - unique_name: vw_factcpfcst_rddunconfirm_Blend_Origin_to_Blend Orgin_Blend Orgin
+    from:
+      dataset: vw_factcpfcst_rddunconfirm
+      join_columns:
+        - Blend_Origin
+    to:
+      dimension: Blend Orgin
+      level: Blend Orgin
+  - unique_name: vw_factcpfcst_rddunconfirm_Snapshot_Date_to_Run Date_Run Date
+    from:
+      dataset: vw_factcpfcst_rddunconfirm
+      join_columns:
+        - Snapshot_Date
+    to:
+      dimension: Run Date
+      level: Run Date
+  - unique_name: vw_factcpfcst_rddunconfirm_Part_12nc_to_DimMaterial_Part 12NC
+    from:
+      dataset: vw_factcpfcst_rddunconfirm
+      join_columns:
+        - Part_12nc
+    to:
+      dimension: DimMaterial
+      level: Part 12NC
+  - unique_name: >-
+      vw_factcpfcst_rddunconfirm_Sales_Document_Type_to_DocumentType_Sales
+      Document Key
+    from:
+      dataset: vw_factcpfcst_rddunconfirm
+      join_columns:
+        - Sales_Document_Type
+    to:
+      dimension: DocumentType
+      level: Sales Document Key
+  - unique_name: vw_factcpfcst_rddunconfirm_Part_12nc_to_Customer Material_Part 12NC
+    from:
+      dataset: vw_factcpfcst_rddunconfirm
+      join_columns:
+        - Part_12nc
+    to:
+      dimension: Customer Material
+      level: Part 12NC
+  - unique_name: vw_factlastsapforecasts_Fcst_Weekly_Date_to_Date_Query_Dt
+    from:
+      dataset: vw_factlastsapforecasts
+      join_columns:
+        - Fcst_Weekly_Date
+    to:
+      dimension: Date
+      level: Query_Dt
+  - unique_name: vw_factlastsapforecasts_Snapshot_Date_to_Run Date_Run Date
+    from:
+      dataset: vw_factlastsapforecasts
+      join_columns:
+        - Snapshot_Date
+    to:
+      dimension: Run Date
+      level: Run Date
+  - unique_name: vw_factlastsapforecasts_Part_12nc_to_DimMaterial_Part 12NC
+    from:
+      dataset: vw_factlastsapforecasts
+      join_columns:
+        - Part_12nc
+    to:
+      dimension: DimMaterial
+      level: Part 12NC
+  - unique_name: vw_factlastsapforecasts_Part_12nc_to_Customer Material_Part 12NC
+    from:
+      dataset: vw_factlastsapforecasts
+      join_columns:
+        - Part_12nc
+    to:
+      dimension: Customer Material
+      level: Part 12NC

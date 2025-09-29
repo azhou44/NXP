@@ -1,0 +1,10 @@
+unique_name: factuserbus_row_security
+object_type: row_security
+label: factuserbus_row_security
+dataset: factuserbus
+filter_key_column: BU_Code
+id_type: user
+ids_column: Full_UserID
+scope: all
+secure_totals: false
+use_filter_key: true

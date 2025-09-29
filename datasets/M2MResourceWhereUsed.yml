@@ -1,0 +1,27 @@
+unique_name: M2MResourceWhereUsed
+object_type: dataset
+label: M2MResourceWhereUsed
+columns:
+  - name: Resource_Key
+    data_type: string
+  - name: Part_12NC
+    data_type: string
+  - name: Number_of_Units
+    data_type: long
+connection_id: con_1dp_scobi_cubes_dev_bpi
+sql: |-
+  SELECT 
+      CAST(COALESCE(RES.Resource_Key, 'N/A') AS VARCHAR(50)) AS Resource_Key, 
+      MAT.Part_12NC, 
+      CAST(MAX(RES.Number_Of_Units) AS BIGINT) AS Number_of_Units
+  FROM 
+      `1dp_scobi_cubes_dev`.BPI.DimMaterial AS MAT 
+      LEFT OUTER JOIN `1dp_scobi_cubes_dev`.BPI.WhereUsedResource AS RES 
+          ON MAT.Part_12NC = RES.Part_12nc 
+          AND RES.Resource_Class IN (
+              'DG', 'BM', 'LG', 'CS', 'WT', 'FT', 'WB', 'AE', 'HL', 'TS', 
+              'BB', 'BC', 'AY', 'PH', 'PT', 'DF', 'LH', 'MH'
+          )
+  GROUP BY 
+      COALESCE(RES.Resource_Key, 'N/A'), 
+      MAT.Part_12NC

@@ -1,0 +1,239 @@
+unique_name: Customer Material
+object_type: dimension
+label: Customer Material
+description: |-
+  - DimCustomerMaterial
+  - vw_dimcustomermaterial
+hierarchies:
+  - unique_name: Customer Material Hirearchy
+    label: Customer Material Hirearchy
+    levels:
+      - unique_name: CustomerMaterial
+        is_hidden: true
+        secondary_attributes:
+          - unique_name: BERI Active
+            label: BERI Active
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - BERI_Active
+            name_column: BERI_Active
+          - unique_name: BERI And Seller
+            label: BERI And Seller
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            is_unique_key: false
+            key_columns:
+              - BERI_And_Seller
+            name_column: BERI_And_Seller
+          - unique_name: BERI Group
+            label: BERI Group
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            is_unique_key: false
+            key_columns:
+              - BERI_Group
+            name_column: BERI_Group
+          - unique_name: CACC Description1
+            label: CACC Description1
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            is_unique_key: false
+            key_columns:
+              - CACC_Description
+            name_column: CACC_Description
+          - unique_name: CP Active
+            label: CP Active
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - CP_Active
+            name_column: CP_Active
+          - unique_name: CPFE
+            label: CPFE
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - CPFE
+            name_column: CPFE
+          - unique_name: Customer Buying Group
+            label: Customer Buying Group
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Customer_Buying_Group
+            name_column: Customer_Buying_Group
+          - unique_name: End Location Code
+            label: End Location Code
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Location_Code
+            name_column: Location_Code
+          - unique_name: End Location Description
+            label: End Location Description
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Location_Description
+            name_column: Location_Description
+          - unique_name: End Location Type
+            label: End Location Type
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Location_Type
+            name_column: Location_Type
+          - unique_name: Forecast Type
+            label: Forecast Type
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Forecast_Type
+            name_column: Forecast_Type
+          - unique_name: I2 Active
+            label: I2 Active
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - I2_Active
+            name_column: I2_Active
+          - unique_name: Is Active Customer
+            label: Is Active Customer
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Is_Active_Customer
+            name_column: Is_Active_Customer
+          - unique_name: Medium Desc
+            label: Medium Desc
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Medium_Desc
+            name_column: Medium_Desc
+          - unique_name: Part 12nc
+            label: Part 12nc
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - part_12nc
+            name_column: part_12nc
+          - unique_name: Part 9NC
+            label: Part 9NC
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Part_9NC
+            name_column: Part_9NC
+          - unique_name: Part Customer Type
+            label: Part Customer Type
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Part_Customer_Type
+            name_column: Part_Customer_Type
+          - unique_name: Sales Channel
+            label: Sales Channel
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Sales_Channel
+            name_column: Sales_Channel
+          - unique_name: Seller
+            label: Seller
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Seller
+            name_column: Seller
+          - unique_name: Seller Priority
+            label: Seller Priority
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Seller_Priority
+            name_column: Seller_Priority
+          - unique_name: Sold To Category Code
+            label: Sold To Category Code
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - Sold_To_Category_Code
+            name_column: Sold_To_Category_Code
+          - unique_name: TG5 Desc
+            label: TG5 Desc
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - TG5_Desc
+            name_column: TG5_Desc
+          - unique_name: TG6 Desc
+            label: TG6 Desc
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - TG6_Desc
+            name_column: TG6_Desc
+          - unique_name: CP Label
+            label: CP Label
+            contains_unique_names: false
+            dataset: vw_dimcustomermaterial
+            folder: CustomerMaterial Attributes
+            is_unique_key: false
+            key_columns:
+              - CP_level
+            name_column: CP_level
+level_attributes:
+  - unique_name: CustomerMaterial
+    label: CustomerMaterial
+    contains_unique_names: false
+    dataset: vw_dimcustomermaterial
+    folder: CustomerMaterial Attributes
+    is_unique_key: false
+    key_columns:
+      - part_12nc
+      - Sold_To_Customer_Code
+      - Ship_To_Customer_Code
+    name_column: CustomerMaterial
+type: standard

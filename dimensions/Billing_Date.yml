@@ -1,0 +1,18 @@
+unique_name: Billing_Date
+object_type: dimension
+label: Billing Date
+hierarchies:
+  - unique_name: Billing_Date_Hierarchy
+    label: Billing Date Hierarchy
+    levels:
+      - unique_name: Billing_Date_Level
+is_degenerate: true
+level_attributes:
+  - unique_name: Billing_Date_Level
+    label: Billing Date Level
+    contains_unique_names: false
+    dataset: vw_factsales_baseline
+    key_columns:
+      - Billing_Date
+    name_column: Billing_Date
+type: standard

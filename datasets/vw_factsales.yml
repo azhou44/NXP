@@ -1,0 +1,71 @@
+unique_name: vw_factsales
+object_type: dataset
+label: vw_factsales
+description: FactSales
+columns:
+  - name: Part_12nc
+    data_type: string
+  - name: Blank
+    data_type: int
+  - name: Billing_Date
+    data_type: date
+  - name: DATEVALUE
+    data_type: date
+  - name: Sold_To
+    data_type: string
+  - name: Bill_To
+    data_type: string
+  - name: Ship_To
+    data_type: string
+  - name: Payer
+    data_type: string
+  - name: Blend_Origin
+    data_type: string
+  - name: Billing_Qty
+    data_type: decimal(19,3)
+  - name: Billing_Type
+    data_type: string
+  - name: Sales_Organization_Code
+    data_type: string
+  - name: Requirement_Qty
+    data_type: decimal(19,2)
+  - name: Sales_Net_Net_In_Gc
+    data_type: decimal(19,2)
+  - name: Sales_Net_In_Gc
+    data_type: decimal(19,2)
+  - name: Am_Pm_Flag
+    data_type: string
+  - name: Sales_Net_Net_AM
+    data_type: decimal(19,2)
+  - name: Sales_Net_AM
+    data_type: decimal(19,2)
+  - name: Billing_Qty_AM
+    data_type: decimal(19,3)
+  - name: Engine_Group
+    data_type: string
+  - name: CustomerMaterial_FK
+    data_type: string
+connection_id: con_1dp_scobi_cubes_dev_bpi
+sql: |-
+  SELECT Part_12nc
+        ,Blank
+        ,Billing_Date
+        ,DATEVALUE
+        ,Sold_To
+        ,Bill_To
+        ,Ship_To
+        ,Payer
+        ,Blend_Origin
+        ,Billing_Qty
+        ,Billing_Type
+        ,Sales_Organization_Code
+        ,Requirement_Qty
+        ,Sales_Net_Net_In_Gc
+        ,Sales_Net_In_Gc
+        ,Am_Pm_Flag
+        ,Sales_Net_Net_AM
+        ,Sales_Net_AM
+        ,Billing_Qty_AM
+        ,Engine_Group
+        ,CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To, '')), '|', TRIM(COALESCE(Part_12nc, ''))) AS CustomerMaterial_FK
+    FROM `1dp_scobi_cubes_dev`.BPI.VW_FactSales

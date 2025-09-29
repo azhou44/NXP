@@ -1,0 +1,9 @@
+unique_name: Last Received SAP Cust Fcst Net Net
+object_type: metric
+label: Last Received Sap Cust Fcst Net Net
+description: vw_factlastsapforecasts
+calculation_method: sum
+column: Last_Received_SAP_Customer_Forecast_Net_Net
+dataset: vw_factlastsapforecasts
+format: $#,##0;($#,##0)
+unrelated_dimensions_handling: repeat

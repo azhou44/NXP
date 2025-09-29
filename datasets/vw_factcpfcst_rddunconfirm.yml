@@ -1,0 +1,124 @@
+unique_name: vw_factcpfcst_rddunconfirm
+object_type: dataset
+label: vw_factcpfcst_rddunconfirm
+description: FactCPFcst
+columns:
+  - name: Snapshot_Date
+    data_type: date
+  - name: Part_12nc
+    data_type: string
+  - name: Ship_To
+    data_type: string
+  - name: Sold_To
+    data_type: string
+  - name: Sales_Organization
+    data_type: string
+  - name: Overdue_Indicator
+    data_type: string
+  - name: Fcst_Weekly_Date
+    data_type: datetime
+  - name: Forecast_Units
+    data_type: decimal(27,3)
+  - name: Forecast_Units_CM
+    data_type: decimal(27,3)
+  - name: Forecast_Net_Net_In_GC
+    data_type: decimal(27,2)
+  - name: Forecast_Net_Net_In_GC_CM
+    data_type: decimal(27,2)
+  - name: Delinquent_Forecast_Units
+    data_type: decimal(27,3)
+  - name: Delinquent_Forecast_Net_Net_In_GC
+    data_type: decimal(27,2)
+  - name: Blend_Origin
+    data_type: string
+  - name: Sales_Document_Type
+    data_type: string
+  - name: Date_Type
+    data_type: string
+  - name: CustomerMaterial_FK
+    data_type: string
+  - name: BLANK
+    data_type: string
+connection_id: con_1dp_scobi_cubes_dev_bpi
+sql: >-
+  SELECT Snapshot_Date, Part_12nc, Ship_To, Sold_To, Sales_Organization,
+  Overdue_Indicator, Fcst_Weekly_Date, Forecast_Units, Forecast_Units_CM,
+  Forecast_Net_Net_In_GC, Forecast_Net_Net_In_GC_CM, Delinquent_Forecast_Units,
+  Delinquent_Forecast_Net_Net_In_GC, Blend_Origin, Sales_Document_Type,
+  Date_Type, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12nc, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK FROM `1dp_scobi_cubes_dev`.BPI.VW_FactCPFcst_CDD
+
+  UNION ALL
+
+  SELECT Snapshot_Date, Part_12nc, Ship_To, Sold_To, Sales_Organization,
+  Overdue_Indicator, Fcst_Weekly_Date, Forecast_Units, Forecast_Units_CM,
+  Forecast_Net_Net_In_GC, Forecast_Net_Net_In_GC_CM, Delinquent_Forecast_Units,
+  Delinquent_Forecast_Net_Net_In_GC, Blend_Origin, Sales_Document_Type,
+  Date_Type, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12nc, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK FROM `1dp_scobi_cubes_dev`.BPI.VW_FactCPFcst_CGID
+
+  UNION ALL
+
+  SELECT Snapshot_Date, Part_12nc, Ship_To, Sold_To, Sales_Organization,
+  Overdue_Indicator, Fcst_Weekly_Date, Forecast_Units, Forecast_Units_CM,
+  Forecast_Net_Net_In_GC, Forecast_Net_Net_In_GC_CM, Delinquent_Forecast_Units,
+  Delinquent_Forecast_Net_Net_In_GC, Blend_Origin, Sales_Document_Type,
+  Date_Type, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12nc, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK FROM `1dp_scobi_cubes_dev`.BPI.VW_FactCPFcst_RDD
+
+  UNION ALL
+
+  SELECT Snapshot_Date, Part_12nc, Ship_To, Sold_To, Sales_Organization,
+  Overdue_Indicator, Fcst_Weekly_Date, Forecast_Units, Forecast_Units_CM,
+  Forecast_Net_Net_In_GC, Forecast_Net_Net_In_GC_CM, Delinquent_Forecast_Units,
+  Delinquent_Forecast_Net_Net_In_GC, Blend_Origin, Sales_Document_Type,
+  Date_Type, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12nc, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK FROM `1dp_scobi_cubes_dev`.BPI.VW_FactCPFcst_RGID
+
+  UNION ALL
+
+  SELECT Snapshot_Date, Part_12nc, Ship_To, Sold_To, Sales_Organization,
+  Overdue_Indicator, Fcst_Weekly_Date, Forecast_Units, Forecast_Units_CM,
+  Forecast_Net_Net_In_GC, Forecast_Net_Net_In_GC_CM, Delinquent_Forecast_Units,
+  Delinquent_Forecast_Net_Net_In_GC, Blend_Origin, Sales_Document_Type,
+  Date_Type, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12nc, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK FROM `1dp_scobi_cubes_dev`.BPI.VW_FactCPFcst_Unconfirm
+
+  UNION ALL
+
+  SELECT Snapshot_Date, Part_12nc, Ship_To, Sold_To, Sales_Organization,
+  Overdue_Indicator, Fcst_Weekly_Date, Forecast_Units, Forecast_Units_CM,
+  Forecast_Net_Net_In_GC, Forecast_Net_Net_In_GC_CM, Delinquent_Forecast_Units,
+  Delinquent_Forecast_Net_Net_In_GC, Blend_Origin, Sales_Document_Type,
+  Date_Type, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12nc, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK FROM `1dp_scobi_cubes_dev`.BPI.VW_FactCPFcst_RDDUnConfirm
+
+  UNION ALL
+
+  SELECT Snapshot_Date, NULL AS Part_12nc, Ship_To, Sold_To, Sales_Organization,
+  NULL AS Overdue_Indicator, NULL AS Fcst_Weekly_Date, NULL AS Forecast_Units,
+  NULL AS Forecast_Units_CM, NULL AS Forecast_Net_Net_In_GC, NULL AS
+  Forecast_Net_Net_In_GC_CM, NULL AS Delinquent_Forecast_Units, NULL AS
+  Delinquent_Forecast_Net_Net_In_GC, NULL AS Blend_Origin, NULL AS
+  Sales_Document_Type, Date_Type, CONCAT(TRIM(COALESCE(Sold_To, '')), '|',
+  TRIM(COALESCE(Ship_To, '')), '|', TRIM(COALESCE(Part_12nc, ''))) AS
+  CustomerMaterial_FK, NULL AS BLANK FROM
+  `1dp_scobi_cubes_dev`.BPI.VW_FactECB_CDD
+
+  UNION ALL
+
+  SELECT Snapshot_Date, NULL AS Part_12nc, Ship_To, Sold_To, Sales_Organization,
+  NULL AS Overdue_Indicator, NULL AS Fcst_Weekly_Date, NULL AS Forecast_Units,
+  NULL AS Forecast_Units_CM, NULL AS Forecast_Net_Net_In_GC, NULL AS
+  Forecast_Net_Net_In_GC_CM, NULL AS Delinquent_Forecast_Units, NULL AS
+  Delinquent_Forecast_Net_Net_In_GC, NULL AS Blend_Origin, NULL AS
+  Sales_Document_Type, Date_Type, CONCAT(TRIM(COALESCE(Sold_To, '')), '|',
+  TRIM(COALESCE(Ship_To, '')), '|', TRIM(COALESCE(Part_12nc, ''))) AS
+  CustomerMaterial_FK, NULL AS BLANK FROM
+  `1dp_scobi_cubes_dev`.BPI.VW_FactECB_RDD

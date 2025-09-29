@@ -1,0 +1,21 @@
+unique_name: Baseline Date
+object_type: dimension
+label: Baseline Date
+description: dimbaselinedate
+hierarchies:
+  - unique_name: Baseline Date Hirearchy
+    label: Baseline Date Hirearchy
+    levels:
+      - unique_name: Baseline Date
+level_attributes:
+  - unique_name: Baseline Date
+    label: Baseline Date
+    contains_unique_names: false
+    dataset: dimbaselinedate
+    is_unique_key: false
+    key_columns:
+      - Run_Date
+    name_column: Run_Date
+    time_unit: day
+relationships: []
+type: time

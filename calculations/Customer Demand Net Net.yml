@@ -1,0 +1,5 @@
+unique_name: Customer Demand Net Net
+object_type: metric_calc
+label: Customer Demand Net Net
+expression: "IIF ( [Customer].[Sales Channel New].CurrentMember.Name = 'DIS', \n            [Measures].[Sales Net Net] + [Measures].[Customer Non EDI RDD + Unconfirm Net Net],\n    IIF ( [Customer Material].[CP Label].CurrentMember.Name = '' AND  [Measures].[Last Received SAP Cust Fcst Net Net] > 0,\n            [Measures].[Sales Net Net] + \n            [Measures].[Last Received SAP Cust Fcst Net Net] +\n\t\t\t[Measures].[Last Received Backlog Net Net],\n            [Measures].[Sales Net Net] + \n            [Measures].[Last Received SAP Cust Fcst Net Net] +\n\t\t\t[Measures].[Last Received Backlog Net Net] +\n            [Measures].[Customer Non EDI RDD + Unconfirm Net Net]))"
+format: $#,##0;($#,##0)

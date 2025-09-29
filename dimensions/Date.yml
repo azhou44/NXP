@@ -1,0 +1,110 @@
+unique_name: Date
+object_type: dimension
+label: Date
+hierarchies:
+  - unique_name: Yr-Qtr-Mth-Wk-Dt
+    label: Yr-Qtr-Mth-Wk-Dt
+    levels:
+      - unique_name: Year
+        secondary_attributes:
+          - unique_name: Year Fiscal
+            label: Year Fiscal
+            contains_unique_names: false
+            dataset: dimdate
+            folder: Date Attributes\Flags
+            is_unique_key: false
+            key_columns:
+              - Fiscal_Yr_Num
+            name_column: Fiscal_Yr_Str
+      - unique_name: Quarter
+        secondary_attributes:
+          - unique_name: Quarter Fiscal
+            label: Quarter Fiscal
+            contains_unique_names: false
+            dataset: dimdate
+            folder: Date Attributes
+            is_unique_key: false
+            key_columns:
+              - Fiscal_Yyyyqq_Num
+            name_column: Fiscal_Yyyyqq_Num
+          - unique_name: Quarter Fiscal Period
+            label: Quarter Fiscal Period
+            contains_unique_names: false
+            dataset: dimdate
+            folder: Date Attributes\Planning
+            is_unique_key: false
+            key_columns:
+              - Quarter_Period
+            name_column: Quarter_Period
+
+      - unique_name: Month
+      - unique_name: Week
+        secondary_attributes:
+          - unique_name: Week Fiscal
+            label: Week Fiscal
+            contains_unique_names: false
+            dataset: dimdate
+            folder: Date Attributes
+            is_unique_key: false
+            key_columns:
+              - Fiscal_Yyyywk_Num
+            name_column: Fiscal_Yyyywk_Num
+      - unique_name: Date
+        secondary_attributes:
+          - unique_name: Current Day
+            label: Current Day
+            contains_unique_names: false
+            dataset: dimdate
+            folder: Date Attributes\Flags
+            is_unique_key: false
+            key_columns:
+              - CurDay
+            name_column: CurDay
+            sort_column: CurDay
+          - unique_name: Date for Churn
+            label: Date for Churn
+            contains_unique_names: false
+            dataset: dimdate
+            is_unique_key: false
+            key_columns:
+              - Query_Dt
+            name_column: Query_Dt
+level_attributes:
+  - unique_name: Date
+    label: Date
+    contains_unique_names: false
+    dataset: dimdate
+    folder: Date Attributes
+    is_unique_key: false
+    key_columns:
+      - Query_Dt
+    name_column: DayString
+  - unique_name: Year
+    label: Year
+    contains_unique_names: false
+    dataset: dimdate
+    key_columns:
+      - Fiscal_Yr_Num
+    name_column: Fiscal_Yr_Str
+  - unique_name: Quarter
+    label: Quarter
+    contains_unique_names: false
+    dataset: dimdate
+    key_columns:
+      - Fiscal_Yyyyqq_Num
+    name_column: Fiscal_Yyyyqq_Str
+  - unique_name: Month
+    label: Month
+    contains_unique_names: false
+    dataset: dimdate
+    key_columns:
+      - Fiscal_Yyyymm_Num
+    name_column: Fiscal_YyyyMM_Str
+  - unique_name: Week
+    label: Week
+    contains_unique_names: false
+    dataset: dimdate
+    key_columns:
+      - Fiscal_Yyyywk_Num
+    name_column: Fiscal_YyyyWW_Str
+type: standard

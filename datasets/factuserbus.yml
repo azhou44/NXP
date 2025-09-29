@@ -1,0 +1,10 @@
+unique_name: factuserbus
+object_type: dataset
+label: factuserbus
+columns:
+  - name: Full_UserID
+    data_type: string
+  - name: BU_Code
+    data_type: string
+connection_id: con_1dp_scobi_cubes_dev_bpi
+table: factuserbus

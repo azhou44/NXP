@@ -1,0 +1,56 @@
+unique_name: vw_factlastsapforecasts_baseline
+object_type: dataset
+label: vw_factlastsapforecasts_baseline
+description: FactLastSAPForecasts for baseline measure
+columns:
+  - name: Snapshot_Date
+    data_type: date
+  - name: Part_12nc
+    data_type: string
+  - name: Ship_To
+    data_type: string
+  - name: Sold_To
+    data_type: string
+  - name: Sales_Organization
+    data_type: string
+  - name: Fcst_Weekly_Date
+    data_type: date
+  - name: Customer_Material
+    data_type: string
+  - name: Last_Received_SAP_Customer_Forecast_Qty
+    data_type: decimal(18,3)
+  - name: Last_Received_SAP_Customer_Forecast_Net_Net
+    data_type: decimal(34,9)
+  - name: Last_Received_SAP_Customer_Backlog_Qty
+    data_type: decimal(18,3)
+  - name: Last_Received_SAP_Customer_Backlog_Net_Net
+    data_type: decimal(34,9)
+  - name: Last_Released_SAP_Customer_Forecast_Qty
+    data_type: decimal(18,3)
+  - name: Last_Released_SAP_Customer_Forecast_Net_Net
+    data_type: decimal(34,9)
+  - name: Last_Released_SAP_Customer_Backlog_Qty
+    data_type: decimal(18,3)
+  - name: Last_Released_SAP_Customer_Backlog_Net_Net
+    data_type: decimal(34,9)
+  - name: Last_Received_SAP_NXP_Forecast_Qty
+    data_type: decimal(18,3)
+  - name: Last_Received_SAP_NXP_Forecast_Net_Net
+    data_type: decimal(34,9)
+  - name: Last_Released_SAP_NXP_Forecast_Qty
+    data_type: decimal(18,3)
+  - name: Last_Released_SAP_NXP_Forecast_Net_Net
+    data_type: decimal(34,9)
+  - name: Dummy_Order_Id
+    data_type: int
+  - name: Dummy_Run_Date
+    data_type: int
+connection_id: con_1dp_scobi_cubes_dev_bpi
+sql: >-
+  SELECT        Snapshot_Date, Part_12nc, Ship_To, Sold_To, Sales_Organization,
+  Fcst_Weekly_Date, Customer_Material, Last_Received_SAP_Customer_Forecast_Qty,
+  Last_Received_SAP_Customer_Forecast_Net_Net, 
+                           Last_Received_SAP_Customer_Backlog_Qty, Last_Received_SAP_Customer_Backlog_Net_Net, Last_Released_SAP_Customer_Forecast_Qty, Last_Released_SAP_Customer_Forecast_Net_Net, 
+                           Last_Released_SAP_Customer_Backlog_Qty, Last_Released_SAP_Customer_Backlog_Net_Net, Last_Received_SAP_NXP_Forecast_Qty, Last_Received_SAP_NXP_Forecast_Net_Net, Last_Released_SAP_NXP_Forecast_Qty, 
+                           Last_Released_SAP_NXP_Forecast_Net_Net, Dummy_Order_Id, Dummy_Run_Date
+  FROM            BPI.VW_FactLastSAPForecasts

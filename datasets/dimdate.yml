@@ -1,0 +1,119 @@
+unique_name: dimdate
+object_type: dataset
+label: dimdate
+description: Date
+columns:
+  - name: Query_Dt
+    data_type: date
+  - name: DayString
+    data_type: string
+  - name: Fiscal_Yr_Num
+    data_type: int
+  - name: Fiscal_Yr_Str
+    data_type: string
+  - name: Fiscal_Yyyyqq_Num
+    data_type: int
+  - name: Fiscal_Yyyyqq_Num_Demand
+    data_type: int
+  - name: Fiscal_Yyyymm_Num
+    data_type: int
+  - name: Fiscal_Yyyywk_Num
+    data_type: int
+  - name: Fiscal_Yyyywk_Num_Demand
+    data_type: int
+  - name: Fiscal_Yyyyqq_Str
+    data_type: string
+  - name: Fiscal_YyyyqqDemand_Str
+    data_type: string
+  - name: Fiscal_YyyyMM_Str
+    data_type: string
+  - name: Fiscal_YyyyWW_Str
+    data_type: string
+  - name: Fiscal_YyyyWWDemand_Str
+    data_type: string
+  - name: CurDay
+    data_type: string
+  - name: Quarter_Flag_Sort
+    data_type: string
+  - name: Short_DayString
+    data_type: string
+  - name: Short_Fiscal_Yyyy_Str
+    data_type: string
+  - name: Short_Fiscal_YyyyQQ_Str
+    data_type: string
+  - name: Short_Fiscal_YyyyMM_Str
+    data_type: string
+  - name: Short_Fiscal_YyyyWW_Str
+    data_type: string
+  - name: Quarter_Period
+    data_type: string
+  - name: Production_Week_As_Yyyyww
+    data_type: int
+  - name: Production_Month_As_Yyyymm
+    data_type: int
+  - name: Production_Quarter_As_Yyyyqq
+    data_type: int
+  - name: Production_Year_As_Yyyy
+    data_type: int
+  - name: Production_Week_As_YyyyWw_Str
+    data_type: string
+  - name: Production_Month_As_Yyyymm_Str
+    data_type: string
+  - name: Production_Quarter_As_Yyyyqq_Str
+    data_type: string
+  - name: Production_Year_As_Yyyy_Str
+    data_type: string
+connection_id: con_1dp_scobi_cubes_dev_bpi
+sql: |-
+  Select
+   Query_Dt
+   ,DayString
+   ,Fiscal_Yr_Num
+   ,Fiscal_Yr_Str
+   ,Fiscal_Yyyyqq_Num
+   ,Fiscal_Yyyyqq_Num_Demand
+   ,Fiscal_Yyyymm_Num
+   ,Fiscal_Yyyywk_Num
+   ,Fiscal_Yyyywk_Num_Demand
+   ,Fiscal_Yyyyqq_Str
+   ,Fiscal_YyyyqqDemand_Str
+   ,Fiscal_YyyyMM_Str
+   ,Fiscal_YyyyWW_Str
+   ,Fiscal_YyyyWWDemand_Str
+   ,CurDay
+   ,Quarter_Flag_Sort
+   ,CASE 
+   WHEN Quarter_Flag_Sort = '2Current' THEN 'Current'
+   WHEN Quarter_Flag_Sort = '3Future' THEN 'Future'
+   ELSE 'Prior' END AS Quarter_Period
+
+   ,Short_DayString
+   ,Short_Fiscal_Yyyy_Str
+   ,Short_Fiscal_YyyyQQ_Str
+   ,Short_Fiscal_YyyyMM_Str
+   ,Short_Fiscal_YyyyWW_Str
+   ,COALESCE(Production_Week_As_Yyyyww,Fiscal_Yyyywk_Num) AS Production_Week_As_Yyyyww
+   ,COALESCE(Production_Month_As_Yyyymm,Fiscal_Yyyymm_Num) AS Production_Month_As_Yyyymm
+   ,COALESCE(Production_Quarter_As_Yyyyqq,Fiscal_Yyyyqq_Num) AS Production_Quarter_As_Yyyyqq
+   ,COALESCE(Production_Year,Fiscal_Yr_Num) As Production_Year_As_Yyyy
+    ,CASE  WHEN Fiscal_Yyyywk_Num < 200000 THEN 'PRIOR YEARS'
+    WHEN Fiscal_Yyyywk_Num >= 205000 THEN 'FUTURE QUARTERS'
+    ELSE COALESCE(Production_Week_As_YyyyWw_Str, Fiscal_YyyyWW_Str)
+    END  AS Production_Week_As_YyyyWw_Str
+   ,CASE  WHEN Fiscal_Yyyymm_Num < 200000 THEN 'PRIOR YEARS'
+    WHEN Fiscal_Yyyymm_Num >= 205000 THEN 'FUTURE QUARTERS'
+    ELSE COALESCE(Production_Month_As_YyyyMm_Str, Fiscal_YyyyMM_Str)
+    END  AS Production_Month_As_Yyyymm_Str
+    ,CASE  WHEN Fiscal_Yyyymm_Num < 200000 THEN 'PRIOR YEARS'
+    WHEN Fiscal_Yyyymm_Num >= 205000 THEN 'FUTURE QUARTERS'
+    ELSE COALESCE(Production_Quater_As_YyyYQq_Str, Fiscal_Yyyyqq_Str)
+    END AS Production_Quarter_As_Yyyyqq_Str
+   ,CASE  WHEN Fiscal_Yr_Num < 2000 THEN 'PRIOR YEARS'
+    WHEN Fiscal_Yr_Num >= 2050 THEN 'FUTURE QUARTERS'
+    ELSE CAST(COALESCE(Production_Year, Fiscal_Yr_Str) AS VARCHAR(15))
+    END AS Production_Year_As_Yyyy_Str
+  FROM
+   1dp_scobi_cubes_dev.BPI.DimDate 
+  LEFT JOIN 
+   1dp_scobi_cubes_dev.EBI.Calendar_Fiscal_Production_Blend
+  ON Production_Date =  Query_Dt

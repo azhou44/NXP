@@ -1,0 +1,48 @@
+unique_name: DocumentType
+object_type: dimension
+label: DocumentType
+description: |-
+  - BPI.Document_Types
+  - DimDocumentType
+hierarchies:
+  - unique_name: Sales Document Hirearchy
+    label: Sales Document Hirearchy
+    description: Sales Document Hirearchy
+    levels:
+      - unique_name: Sales Document Key
+        is_hidden: true
+        secondary_attributes:
+          - unique_name: Demand Type
+            label: Demand Type
+            contains_unique_names: false
+            dataset: document_types
+            is_unique_key: false
+            key_columns:
+              - Demand_Type
+            name_column: Demand_Type
+          - unique_name: Replenishment Order Indicator
+            label: Replenishment Order Indicator
+            contains_unique_names: false
+            dataset: document_types
+            is_unique_key: false
+            key_columns:
+              - Replenishment_Order_Indicator
+            name_column: Replenishment_Order_Indicator
+          - unique_name: Sales Document Type
+            label: Sales Document Type
+            contains_unique_names: false
+            dataset: document_types
+            is_unique_key: false
+            key_columns:
+              - Sales_Document_Key
+            name_column: Sales_Document_Key
+level_attributes:
+  - unique_name: Sales Document Key
+    label: Sales Document Key
+    contains_unique_names: false
+    dataset: document_types
+    is_unique_key: false
+    key_columns:
+      - Sales_Document_Type
+    name_column: Sales_Document_Type
+type: standard

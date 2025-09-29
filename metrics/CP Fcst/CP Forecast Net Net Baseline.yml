@@ -1,0 +1,9 @@
+unique_name: CP Forecast Net Net Baseline
+object_type: metric
+label: CP Forecast Net Net Baseline
+description: FactCPFcst_baseline
+calculation_method: sum
+column: Forecast_Net_Net_In_GC
+dataset: vw_factcpfcst_rddunconfirm_baseline
+format: $#,##0;-$#,##0
+unrelated_dimensions_handling: repeat

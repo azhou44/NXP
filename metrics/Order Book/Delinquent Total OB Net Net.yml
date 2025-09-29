@@ -1,0 +1,8 @@
+unique_name: Delinquent Total OB Net Net
+object_type: metric
+label: Delinquent Total OB Net Net
+calculation_method: sum
+column: Delq_Net_Net_In_Gc
+dataset: vw_factob_rddunconfirm
+format: $#,##0;($#,##0)
+unrelated_dimensions_handling: repeat

@@ -1,0 +1,18 @@
+unique_name: dimuser
+object_type: dataset
+label: dimuser
+columns:
+  - name: FullUserID
+    data_type: string
+  - name: UserID
+    data_type: string
+  - name: LastName
+    data_type: string
+  - name: FirstName
+    data_type: string
+  - name: FullName
+    data_type: string
+  - name: UserType
+    data_type: string
+connection_id: con_1dp_scobi_cubes_dev_bpi
+table: dimuser

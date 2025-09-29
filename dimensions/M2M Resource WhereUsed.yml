@@ -1,0 +1,43 @@
+unique_name: M2M Resource WhereUsed
+object_type: dimension
+label: M2M Resource WhereUsed
+hierarchies:
+  - unique_name: M2M Resource WhereUsed Hierarchy
+    label: M2M Resource WhereUsed Hierarchy
+    levels:
+      - unique_name: M2M Resource WhereUsed Level
+level_attributes:
+  - unique_name: M2M Resource WhereUsed Level
+    label: M2M Resource WhereUsed Level
+    contains_unique_names: false
+    dataset: M2MResourceWhereUsed
+    is_unique_key: false
+    key_columns:
+      - Part_12NC
+    name_column: Part_12NC
+relationships:
+  - unique_name: M2MResourceWhereUsed_Resource_Key_to_Resource WhereUsed_Resource Key
+    from:
+      dataset: M2MResourceWhereUsed
+      hierarchy: M2M Resource WhereUsed Hierarchy
+      join_columns:
+        - Resource_Key
+      level: M2M Resource WhereUsed Level
+    M2M: true
+    to:
+      dimension: Resource WhereUsed
+      level: Resource Key
+    type: embedded
+  - unique_name: M2MResourceWhereUsed_Part_12NC_to_Material_Part 12NC
+    from:
+      dataset: M2MResourceWhereUsed
+      hierarchy: M2M Resource WhereUsed Hierarchy
+      join_columns:
+        - Part_12NC
+      level: M2M Resource WhereUsed Level
+    to:
+      dimension: Material
+      level: Part 12NC
+    M2M: true
+    type: embedded
+type: standard

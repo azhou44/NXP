@@ -1,0 +1,13 @@
+unique_name: Customer Non EDI RDD + Unconfirm Net Net
+object_type: metric_calc
+label: Customer Non EDI RDD + Unconfirm Net Net
+expression: >-
+  IIF([Measures].[RDD w Delinq + Unconfirm Net Net] - [Measures].[Customer EDI
+  RDD + Unconfirm Net Net] > 0,
+
+  [Measures].[RDD w Delinq + Unconfirm Net Net] - [Measures].[Customer EDI RDD +
+  Unconfirm Net Net],
+
+  NULL)
+format: $#,##0;($#,##0)
+mdx_aggregate_function: SUM

@@ -1,0 +1,80 @@
+unique_name: vw_dimcustomermaterial
+object_type: dataset
+label: vw_dimcustomermaterial
+columns:
+  - name: CustomerMaterial
+    data_type: string
+  - name: Sold_To_Customer_Code
+    data_type: string
+  - name: Ship_To_Customer_Code
+    data_type: string
+  - name: part_12nc
+    data_type: string
+  - name: Part_9NC
+    data_type: string
+  - name: Medium_Desc
+    data_type: string
+  - name: TG5_Desc
+    data_type: string
+  - name: TG6_Desc
+    data_type: string
+  - name: BU_Desc
+    data_type: string
+  - name: BL_Desc
+    data_type: string
+  - name: Lifecycle_State
+    data_type: string
+  - name: MAG_Code
+    data_type: string
+  - name: MAG_Desc
+    data_type: string
+  - name: Product_Group
+    data_type: string
+  - name: Product_Priority
+    data_type: int
+  - name: Seller
+    data_type: string
+  - name: CPFE
+    data_type: string
+  - name: Forecast_Type
+    data_type: string
+  - name: Location_Code
+    data_type: string
+  - name: Location_Description
+    data_type: string
+  - name: Location_Type
+    data_type: string
+  - name: CP_level
+    data_type: string
+  - name: CP_Active
+    data_type: string
+  - name: CPN
+    data_type: string
+  - name: Seller_Priority
+    data_type: string
+  - name: BERI_Group
+    data_type: string
+  - name: BERI_And_Seller
+    data_type: string
+  - name: BERI_Active
+    data_type: string
+  - name: I2_Active
+    data_type: string
+  - name: Cacc_Code
+    data_type: string
+  - name: CACC_Description
+    data_type: string
+  - name: Customer_Buying_Group
+    data_type: string
+  - name: Sales_Channel
+    data_type: string
+  - name: Sold_To_Category_Code
+    data_type: string
+  - name: Is_Active_Customer
+    data_type: int
+  - name: Part_Customer_Type
+    data_type: string
+  - name: DRPC_Flag
+    data_type: string
+connection_id: con_1dp_scobi_cubes_dev_bpi
+table: vw_dimcustomermaterial

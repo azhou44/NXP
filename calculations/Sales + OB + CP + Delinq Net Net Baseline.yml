@@ -1,0 +1,9 @@
+unique_name: Sales + OB + CP + Delinq Net Net Baseline
+object_type: metric_calc
+label: Sales + OB + CP + Delinq Net Net Baseline
+expression: |-
+  [Measures].[Sales Net Net Baseline]+ [Measures].[OB non-Delinq Net Net Baseline] 
+   + [Measures].[Delinquent Total OB Net Net Baseline]
+   + [Measures].[CP Forecast Net Net Baseline] 
+   + [Measures].[Delinquent CP Forecast Net Net Baseline]
+format: $#,##0;($#,##0)

@@ -1,0 +1,151 @@
+unique_name: Customer
+object_type: dimension
+label: Customer
+description: |-
+  - DimCustomerInfo
+  - vw_dimcustomerinfo_dimension
+hierarchies:
+  - unique_name: Customer Hirearchy
+    label: Customer Hirearchy
+    description: DimCustomerInfoHierarchy
+    levels:
+      - unique_name: Customer Key
+        is_hidden: true
+        secondary_attributes:
+          - unique_name: AMP Category
+            label: AMP Category
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            folder: Customer Attributes\Custom Categories
+            is_unique_key: false
+            key_columns:
+              - AMP_Category
+            name_column: AMP_Category
+          - unique_name: Base AND Fulfillment
+            label: Base AND Fulfillment
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            folder: Customer Attributes
+            is_unique_key: false
+            key_columns:
+              - Base_Fulfillment_Region
+            name_column: Base_Fulfillment_Region
+          - unique_name: Base Region
+            label: Base Region
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            is_unique_key: false
+            key_columns:
+              - Base_Region
+            name_column: Base_Region
+          - unique_name: CACC Code
+            label: CACC Code
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            folder: Customer Attributes
+            is_unique_key: false
+            key_columns:
+              - Cacc_Code
+            name_column: Cacc_Code
+          - unique_name: CACC Description
+            label: CACC Description
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            is_unique_key: false
+            key_columns:
+              - CACC_Description
+            name_column: CACC_Description
+          - unique_name: CACC Sales Account Manager
+            label: CACC Sales Account Manager
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            folder: Customer Attributes
+            is_unique_key: false
+            key_columns:
+              - CACC_Sales_Account_Manager
+            name_column: CACC_Sales_Account_Manager
+          - unique_name: CGAD Flag
+            label: CGAD Flag
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            folder: Customer Attributes
+            is_unique_key: false
+            key_columns:
+              - CGAD_Flag
+            name_column: CGAD_Flag
+          - unique_name: Channel Group
+            label: Channel Group
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            folder: Customer Attributes\Custom Categories
+            is_unique_key: false
+            key_columns:
+              - Channel_Group
+            name_column: Channel_Group
+          - unique_name: CSR Code
+            label: CSR Code
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            folder: Customer Attributes
+            is_unique_key: false
+            key_columns:
+              - CSR_Code
+            name_column: CSR_Code
+          - unique_name: CSR Name
+            label: CSR Name
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            folder: Customer Attributes
+            is_unique_key: false
+            key_columns:
+              - CSR_Name
+            name_column: CSR_Name
+          - unique_name: Sales Channel New
+            label: Sales Channel New
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            folder: Customer Attributes
+            is_unique_key: false
+            key_columns:
+              - Sales_Channel
+            name_column: Sales_Channel
+          - unique_name: Global Account Code
+            label: Global Account Code
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            is_unique_key: false
+            key_columns:
+              - Global_Account_Code
+            name_column: Global_Account_Code
+          - unique_name: Ship To Sold To
+            label: Ship To Sold To
+            contains_unique_names: false
+            dataset: vw_dimcustomerinfo
+            is_unique_key: false
+            key_columns:
+              - Ship_To_Sold_To
+            name_column: Ship_To_Sold_To
+level_attributes:
+  - unique_name: Customer Key
+    label: Customer Key
+    description: DimCustomerInfo Level
+    contains_unique_names: false
+    dataset: vw_dimcustomerinfo
+    is_unique_key: true
+    key_columns:
+      - Sales_Organization
+      - Sold_To_Customer_Code
+      - Ship_To_Customer_Code
+    name_column: Sale_org_sold_ship_key
+relationships:
+  - unique_name: vw_dimcustomerinfo_Base_Fulfillment_Region_to_factregionrules_row_security
+    from:
+      dataset: vw_dimcustomerinfo
+      hierarchy: Customer Hirearchy
+      join_columns:
+        - Base_Fulfillment_Region
+      level: Customer Key
+    to:
+      row_security: factregionrules_row_security
+    type: embedded
+type: standard

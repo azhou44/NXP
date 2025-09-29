@@ -1,0 +1,215 @@
+unique_name: Material
+object_type: dimension
+label: Material
+description: |-
+  - DimMaterial
+  - vw_dimmaterialfinal_dimension
+hierarchies:
+  - unique_name: Material Hirearchy
+    label: Material Hirearchy
+    levels:
+      - unique_name: Part 12NC
+        secondary_attributes:
+          - unique_name: AG Code
+            label: AG Code
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - Ag_Code
+            name_column: Ag_Code
+          - unique_name: AG Description
+            label: AG Description
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - AG_Description
+            name_column: AG_Description
+          - unique_name: BG Code
+            label: BG Code
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - Business_Group_Code
+            name_column: Business_Group_Code
+          - unique_name: BL Code
+            label: BL Code
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - BL_Code
+            name_column: BL_Code
+          - unique_name: BL Description
+            label: BL Description
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - BL_Description
+            name_column: BL_Description
+          - unique_name: BL Short Description
+            label: BL Short Description
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - BL_Code
+            name_column: BL_Short_Descr
+          - unique_name: BS Code
+            label: BS Code
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - Business_Segment_Code
+            name_column: Business_Segment_Code
+          - unique_name: BS Description
+            label: BS Description
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - Business_Segment_Description
+            name_column: Business_Segment_Description
+          - unique_name: BU Code
+            label: BU Code
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - BU_Code
+            name_column: BU_Code
+          - unique_name: BU Description
+            label: BU Description
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - BU_Description
+            name_column: BU_Description
+          - unique_name: BU Short Description
+            label: BU Short Description
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - BU_Code
+            name_column: BU_Short_Descr
+          - unique_name: CEPT
+            label: CEPT
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - CEPT
+            name_column: CEPT
+          - unique_name: CESF
+            label: CESF
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - CESF
+            name_column: CESF
+          - unique_name: Demand Manager
+            label: Demand Manager
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - Demand_Manager
+            name_column: Demand_Manager
+          - unique_name: MAG
+            label: MAG
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - MAG_Code
+            name_column: MAg_Short_Descr
+          - unique_name: MAG Code
+            label: MAG Code
+            contains_unique_names: false
+            dataset: vw_dimmaterialfinal
+            folder: Material Attributes
+            is_unique_key: false
+            key_columns:
+              - MAG_Code
+            name_column: MAG_Code
+  - unique_name: TG3-AG-TG5-TG6-12NC
+    label: TG3-AG-TG5-TG6-12NC
+    levels:
+      - unique_name: TG3 Code
+      - unique_name: AG
+      - unique_name: TG5
+      - unique_name: TG6
+      - unique_name: Part 12NC With Med Description
+level_attributes:
+  - unique_name: Part 12NC
+    label: Part 12NC
+    contains_unique_names: false
+    dataset: vw_dimmaterialfinal
+    is_unique_key: false
+    key_columns:
+      - Part_12NC
+    name_column: Part_12NC
+  - unique_name: TG3 Code
+    label: TG3 Code
+    contains_unique_names: false
+    dataset: vw_dimmaterialfinal
+    is_unique_key: false
+    key_columns:
+      - Type_Group_3TG_Code
+    name_column: Type_Group_3TG_Code
+  - unique_name: AG
+    label: AG
+    contains_unique_names: false
+    dataset: vw_dimmaterialfinal
+    is_unique_key: false
+    key_columns:
+      - Ag_Code
+    name_column: Ag_Short_Descr
+  - unique_name: TG5
+    label: TG5
+    contains_unique_names: false
+    dataset: vw_dimmaterialfinal
+    is_unique_key: false
+    key_columns:
+      - Type_Group_5TG_Code
+    name_column: tg_5TG_Short_Descrption
+  - unique_name: TG6
+    label: TG6
+    contains_unique_names: false
+    dataset: vw_dimmaterialfinal
+    is_unique_key: false
+    key_columns:
+      - Type_Group_6TG_Code
+    name_column: tg_6TG_Short_Descrption
+  - unique_name: Part 12NC With Med Description
+    label: Part 12NC With Med Description
+    contains_unique_names: false
+    dataset: vw_dimmaterialfinal
+    is_unique_key: false
+    key_columns:
+      - Part_12NC_With_Med_Description
+    name_column: Part_12NC_With_Med_Description
+relationships: []
+type: standard

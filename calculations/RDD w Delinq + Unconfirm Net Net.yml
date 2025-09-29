@@ -1,0 +1,10 @@
+unique_name: RDD w Delinq + Unconfirm Net Net
+object_type: metric_calc
+label: RDD w Delinq + Unconfirm Net Net
+expression: >-
+  ([Date Type].[Date Type Hirearchy].[Date Type].&[Requested],[Measures].[Delinquent Total OB Net
+  Net]) +
+   ([Date Type].[Date Type Hirearchy].[Date Type].&[Requested],[Measures].[Non Delinquent OB Net Net]) + 
+   ([Date Type].[Date Type Hirearchy].[Date Type].&[Unconfirm],[Measures].[Delinquent Total OB Net Net]) +
+   ([Date Type].[Date Type Hirearchy].[Date Type].&[Unconfirm],[Measures].[Non Delinquent OB Net Net])
+mdx_aggregate_function: SUM

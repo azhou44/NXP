@@ -1,0 +1,31 @@
+unique_name: M2M Baseline Date Date
+object_type: dimension
+label: M2M Baseline Date Date
+hierarchies:
+  - unique_name: M2M Baseline Date Date Hierarchy
+    label: M2M Baseline Date Date Hierarchy
+    levels:
+      - unique_name: M2M Baseline Date Date Level
+level_attributes:
+  - unique_name: M2M Baseline Date Date Level
+    label: M2M Baseline Date Date Level
+    contains_unique_names: false
+    dataset: M2MBaselineDateDate_DS
+    is_unique_key: false
+    key_columns:
+      - Query_Dt
+    name_column: Query_Dt
+relationships:
+  - unique_name: M2MBaselineDateDate_DS_RUN_DATE_to_Baseline Date_Baseline Date
+    from:
+      dataset: M2MBaselineDateDate_DS
+      hierarchy: M2M Baseline Date Date Hierarchy
+      join_columns:
+        - RUN_DATE
+      level: M2M Baseline Date Date Level
+    M2M: true
+    to:
+      dimension: Baseline Date
+      level: Baseline Date
+    type: embedded
+type: standard

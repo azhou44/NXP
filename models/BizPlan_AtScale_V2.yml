@@ -1,0 +1,476 @@
+unique_name: BizPlan_AtScale_V2
+object_type: model
+label: BizPlan_AtScale_V2
+dimensions: []
+metrics:
+  - unique_name: Delinquent Total OB Net Net
+    folder: Delinquent Net Net
+  - unique_name: Delinquent Total OB Net Net Baseline
+    folder: Delinquent Net Net
+  - unique_name: Non Delinquent OB Net Net
+    folder: Delinquent Net Net
+  - unique_name: RDD w Delinq + Unconfirm Net Net
+    folder: Mismatch\Delta Order Book
+  - unique_name: Customer EDI RDD + Unconfirm Net Net
+    folder: True Demand vs Supply
+  - unique_name: Customer Demand Net Net
+    folder: True Demand vs Supply
+  - unique_name: Customer Non EDI RDD + Unconfirm Net Net
+    folder: True Demand vs Supply
+  - unique_name: Sales + OB + CP + Delinq Net Net
+    folder: Visibility Net Net
+  - unique_name: Sales + OB + CP + Delinq Net Net Baseline
+    folder: Visibility Net Net\Delta
+  - unique_name: Sales + OB + CP + Delinq Net Net Delta to Baseline
+    folder: Visibility Net Net\Delta
+  - unique_name: Sales Net Net
+  - unique_name: Sales Net Net Baseline
+  - unique_name: OB non-Delinq Net Net
+  - unique_name: OB non-Delinq Net Net Baseline
+  - unique_name: CP Forecast Net Net
+  - unique_name: CP Forecast Net Net Baseline
+  - unique_name: Delinquent CP Forecast Net Net
+  - unique_name: Delinquent CP Forecast Net Net Baseline
+  - unique_name: Last Received Backlog Net Net
+  - unique_name: Last Received SAP Cust Fcst Net Net
+relationships:
+  - unique_name: vw_factob_rddunconfirm_DATEVALUE_to_Date_Date
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - DATEVALUE
+    to:
+      dimension: Date
+      level: Date
+  - unique_name: >-
+      vw_factob_rddunconfirm_Part_12NC_to_DimCustomerMaterial_DimCustomerMaterial
+      Level
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Part_12NC
+        - Sold_To
+        - Ship_To
+    to:
+      dimension: Customer Material
+      level: CustomerMaterial
+  - unique_name: >-
+      vw_factob_rddunconfirm_Sales_Organization_to_DimCustomerInfo_DimCustomerInfo
+      Level
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Sales_Organization
+        - Sold_To
+        - Ship_To
+    to:
+      dimension: Customer
+      level: Customer Key
+  - unique_name: vw_factob_rddunconfirm_Snapshot_Date_to_Run Date_Run Date Level
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Snapshot_Date
+    to:
+      dimension: Run Date
+      level: Run Date
+  - unique_name: vw_factob_rddunconfirm_Blend_Origin_to_Blend Orgin_Blend Orgin Level
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Blend_Origin
+    to:
+      dimension: Blend Orgin
+      level: Blend Orgin
+  - unique_name: >-
+      vw_factob_rddunconfirm_Sales_Document_Type_to_DocumentType_Sales Document
+      Key
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Sales_Document_Type
+    to:
+      dimension: DocumentType
+      level: Sales Document Key
+  - unique_name: vw_factsales_Billing_Date_to_Date_Date
+    from:
+      dataset: vw_factsales
+      join_columns:
+        - Billing_Date
+    to:
+      dimension: Date
+      level: Date
+  - unique_name: vw_factsales_Blend_Origin_to_Blend Orgin_Blend Orgin
+    from:
+      dataset: vw_factsales
+      join_columns:
+        - Blend_Origin
+    to:
+      dimension: Blend Orgin
+      level: Blend Orgin
+  - unique_name: vw_factsales_Part_12nc_to_Customer_Material_Part 12NC
+    from:
+      dataset: vw_factsales
+      join_columns:
+        - Part_12nc
+        - Sold_To
+        - Ship_To
+    to:
+      dimension: Customer Material
+      level: CustomerMaterial
+  - unique_name: vw_factsales_Billing_Type_to_DocumentType_Sales Document Key
+    from:
+      dataset: vw_factsales
+      join_columns:
+        - Billing_Type
+    to:
+      dimension: DocumentType
+      level: Sales Document Key
+  - unique_name: vw_factsales_Part_12nc_to_Material_Part 12NC
+    from:
+      dataset: vw_factsales
+      join_columns:
+        - Part_12nc
+    to:
+      dimension: Material
+      level: Part 12NC
+  - unique_name: vw_factob_rddunconfirm_Part_12NC_to_Material_Part 12NC
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Part_12NC
+    to:
+      dimension: Material
+      level: Part 12NC
+  - unique_name: vw_factcpfcst_rddunconfirm_Fcst_Weekly_Date_to_Date_Date
+    from:
+      dataset: vw_factcpfcst_rddunconfirm
+      join_columns:
+        - Fcst_Weekly_Date
+    to:
+      dimension: Date
+      level: Date
+  - unique_name: vw_factcpfcst_rddunconfirm_Blend_Origin_to_Blend Orgin_Blend Orgin
+    from:
+      dataset: vw_factcpfcst_rddunconfirm
+      join_columns:
+        - Blend_Origin
+    to:
+      dimension: Blend Orgin
+      level: Blend Orgin
+  - unique_name: vw_factcpfcst_rddunconfirm_Snapshot_Date_to_Run Date_Run Date
+    from:
+      dataset: vw_factcpfcst_rddunconfirm
+      join_columns:
+        - Snapshot_Date
+    to:
+      dimension: Run Date
+      level: Run Date
+  - unique_name: vw_factcpfcst_rddunconfirm_Part_12nc_to_Material_Part 12NC
+    from:
+      dataset: vw_factcpfcst_rddunconfirm
+      join_columns:
+        - Part_12nc
+    to:
+      dimension: Material
+      level: Part 12NC
+  - unique_name: >-
+      vw_factcpfcst_rddunconfirm_Sales_Document_Type_to_DocumentType_Sales
+      Document Key
+    from:
+      dataset: vw_factcpfcst_rddunconfirm
+      join_columns:
+        - Sales_Document_Type
+    to:
+      dimension: DocumentType
+      level: Sales Document Key
+  - unique_name: vw_factcpfcst_rddunconfirm_Part_12nc_to_Customer Material_Part 12NC
+    from:
+      dataset: vw_factcpfcst_rddunconfirm
+      join_columns:
+        - Part_12nc
+        - Sold_To
+        - Ship_To
+    to:
+      dimension: Customer Material
+      level: CustomerMaterial
+  - unique_name: vw_factlastsapforecasts_Fcst_Weekly_Date_to_Date_Date
+    from:
+      dataset: vw_factlastsapforecasts
+      join_columns:
+        - Fcst_Weekly_Date
+    to:
+      dimension: Date
+      level: Date
+  - unique_name: vw_factlastsapforecasts_Snapshot_Date_to_Run Date_Run Date
+    from:
+      dataset: vw_factlastsapforecasts
+      join_columns:
+        - Snapshot_Date
+    to:
+      dimension: Run Date
+      level: Run Date
+  - unique_name: vw_factlastsapforecasts_Part_12nc_to_Material_Part 12NC
+    from:
+      dataset: vw_factlastsapforecasts
+      join_columns:
+        - Part_12nc
+    to:
+      dimension: Material
+      level: Part 12NC
+  - unique_name: vw_factlastsapforecasts_Part_12nc_to_Customer Material_Part 12NC
+    from:
+      dataset: vw_factlastsapforecasts
+      join_columns:
+        - Part_12nc
+        - Sold_To
+        - Ship_To
+    to:
+      dimension: Customer Material
+      level: CustomerMaterial
+  - unique_name: vw_factob_rddunconfirm_Date_Type_to_Date Type_Date Type
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Date_Type
+    to:
+      dimension: Date Type
+      level: Date Type
+  - unique_name: >-
+      vw_factob_rddunconfirm_Part_12NC_to_M2M Resource WhereUsed_M2M Resource
+      WhereUsed Level
+    from:
+      dataset: vw_factob_rddunconfirm
+      join_columns:
+        - Part_12NC
+    to:
+      dimension: M2M Resource WhereUsed
+      level: M2M Resource WhereUsed Level
+  - unique_name: vw_factsales_Billing_Date_to_M2M Run Date Date_M2M Run Date Date Level
+    from:
+      dataset: vw_factsales
+      join_columns:
+        - Billing_Date
+    to:
+      dimension: M2M Run Date Date
+      level: M2M Run Date Date Level
+  - unique_name: >-
+      vw_factsales_baseline_Billing_Date_to_M2M Baseline Date Date_M2M Baseline
+      Date Date Level
+    from:
+      dataset: vw_factsales_baseline
+      join_columns:
+        - Billing_Date
+    to:
+      dimension: M2M Baseline Date Date
+      level: M2M Baseline Date Date Level
+  - unique_name: vw_factsales_baseline_Billing_Date_to_Date_Date
+    from:
+      dataset: vw_factsales_baseline
+      join_columns:
+        - Billing_Date
+    to:
+      dimension: Date
+      level: Date
+  - unique_name: vw_factsales_baseline_Blend_Origin_to_Blend Orgin_Blend Orgin
+    from:
+      dataset: vw_factsales_baseline
+      join_columns:
+        - Blend_Origin
+    to:
+      dimension: Blend Orgin
+      level: Blend Orgin
+  - unique_name: vw_factsales_baseline_Part_12nc_to_Customer_Material_Part 12NC
+    from:
+      dataset: vw_factsales_baseline
+      join_columns:
+        - Part_12nc
+        - Sold_To
+        - Ship_To
+    to:
+      dimension: Customer Material
+      level: CustomerMaterial
+  - unique_name: vw_factsales_baseline_Billing_Type_to_DocumentType_Sales Document Key
+    from:
+      dataset: vw_factsales_baseline
+      join_columns:
+        - Billing_Type
+    to:
+      dimension: DocumentType
+      level: Sales Document Key
+  - unique_name: vw_factsales_baseline_Part_12nc_to_Material_Part 12NC
+    from:
+      dataset: vw_factsales_baseline
+      join_columns:
+        - Part_12nc
+    to:
+      dimension: Material
+      level: Part 12NC
+  - unique_name: vw_factob_rddunconfirm_baseline_DATEVALUE_to_Date_Date
+    from:
+      dataset: vw_factob_rddunconfirm_baseline
+      join_columns:
+        - DATEVALUE
+    to:
+      dimension: Date
+      level: Date
+  - unique_name: >-
+      vw_factob_rddunconfirm_baseline_Part_12NC_to_DimCustomerMaterial_DimCustomerMaterial
+      Level
+    from:
+      dataset: vw_factob_rddunconfirm_baseline
+      join_columns:
+        - Part_12NC
+        - Sold_To
+        - Ship_To
+    to:
+      dimension: Customer Material
+      level: CustomerMaterial
+  - unique_name: >-
+      vw_factob_rddunconfirm_baseline_Sales_Organization_to_DimCustomerInfo_DimCustomerInfo
+      Level
+    from:
+      dataset: vw_factob_rddunconfirm_baseline
+      join_columns:
+        - Sales_Organization
+        - Sold_To
+        - Ship_To
+    to:
+      dimension: Customer
+      level: Customer Key
+  - unique_name: vw_factob_rddunconfirm_baseline_Blend_Origin_to_Blend Orgin_Blend Orgin Level
+    from:
+      dataset: vw_factob_rddunconfirm_baseline
+      join_columns:
+        - Blend_Origin
+    to:
+      dimension: Blend Orgin
+      level: Blend Orgin
+  - unique_name: >-
+      vw_factob_rddunconfirm_baseline_Sales_Document_Type_to_DocumentType_Sales Document
+      Key
+    from:
+      dataset: vw_factob_rddunconfirm_baseline
+      join_columns:
+        - Sales_Document_Type
+    to:
+      dimension: DocumentType
+      level: Sales Document Key
+  - unique_name: vw_factob_rddunconfirm_baseline_Date_Type_to_Date Type_Date Type
+    from:
+      dataset: vw_factob_rddunconfirm_baseline
+      join_columns:
+        - Date_Type
+    to:
+      dimension: Date Type
+      level: Date Type
+  - unique_name: >-
+      vw_factob_rddunconfirm_baseline_Part_12NC_to_M2M Resource WhereUsed_M2M Resource
+      WhereUsed Level
+    from:
+      dataset: vw_factob_rddunconfirm_baseline
+      join_columns:
+        - Part_12NC
+    to:
+      dimension: M2M Resource WhereUsed
+      level: M2M Resource WhereUsed Level
+  - unique_name: >-
+      vw_factob_rddunconfirm_baseline_Snapshot_Date_to_Baseline Date_Baseline
+      Date Level
+    from:
+      dataset: vw_factob_rddunconfirm_baseline
+      join_columns:
+        - Snapshot_Date
+    to:
+      dimension: Baseline Date
+      level: Baseline Date
+  - unique_name: vw_factlastsapforecasts_baseline_Fcst_Weekly_Date_to_Date_Date
+    from:
+      dataset: vw_factlastsapforecasts_baseline
+      join_columns:
+        - Fcst_Weekly_Date
+    to:
+      dimension: Date
+      level: Date
+  - unique_name: vw_factlastsapforecasts_baseline_Part_12nc_to_Material_Part 12NC
+    from:
+      dataset: vw_factlastsapforecasts_baseline
+      join_columns:
+        - Part_12nc
+    to:
+      dimension: Material
+      level: Part 12NC
+  - unique_name: vw_factlastsapforecasts_baseline_Part_12nc_to_Customer Material_Part 12NC
+    from:
+      dataset: vw_factlastsapforecasts_baseline
+      join_columns:
+        - Part_12nc
+        - Sold_To
+        - Ship_To
+    to:
+      dimension: Customer Material
+      level: CustomerMaterial
+  - unique_name: >-
+      vw_factlastsapforecasts_baseline_Snapshot_Date_to_Baseline Date_Baseline
+      Date
+    from:
+      dataset: vw_factlastsapforecasts_baseline
+      join_columns:
+        - Snapshot_Date
+    to:
+      dimension: Baseline Date
+      level: Baseline Date
+  - unique_name: vw_factcpfcst_rddunconfirm_baseline_Fcst_Weekly_Date_to_Date_Date
+    from:
+      dataset: vw_factcpfcst_rddunconfirm_baseline
+      join_columns:
+        - Fcst_Weekly_Date
+    to:
+      dimension: Date
+      level: Date
+  - unique_name: vw_factcpfcst_rddunconfirm_baseline_Blend_Origin_to_Blend Orgin_Blend Orgin
+    from:
+      dataset: vw_factcpfcst_rddunconfirm_baseline
+      join_columns:
+        - Blend_Origin
+    to:
+      dimension: Blend Orgin
+      level: Blend Orgin
+  - unique_name: vw_factcpfcst_rddunconfirm_baseline_Part_12nc_to_Material_Part 12NC
+    from:
+      dataset: vw_factcpfcst_rddunconfirm_baseline
+      join_columns:
+        - Part_12nc
+    to:
+      dimension: Material
+      level: Part 12NC
+  - unique_name: >-
+      vw_factcpfcst_rddunconfirm_baseline_Sales_Document_Type_to_DocumentType_Sales
+      Document Key
+    from:
+      dataset: vw_factcpfcst_rddunconfirm_baseline
+      join_columns:
+        - Sales_Document_Type
+    to:
+      dimension: DocumentType
+      level: Sales Document Key
+  - unique_name: vw_factcpfcst_rddunconfirm_baseline_Part_12nc_to_Customer Material_Part 12NC
+    from:
+      dataset: vw_factcpfcst_rddunconfirm_baseline
+      join_columns:
+        - Part_12nc
+        - Sold_To
+        - Ship_To
+    to:
+      dimension: Customer Material
+      level: CustomerMaterial
+  - unique_name: >-
+      vw_factcpfcst_rddunconfirm_baseline_Snapshot_Date_to_Baseline
+      Date_Baseline Date
+    from:
+      dataset: vw_factcpfcst_rddunconfirm_baseline
+      join_columns:
+        - Snapshot_Date
+    to:
+      dimension: Baseline Date
+      level: Baseline Date

@@ -1,0 +1,6 @@
+version: 1
+unique_name: atscale-pilot
+object_type: catalog
+label: atscale-pilot
+aggressive_agg_promotion: false
+build_speculative_aggs: true

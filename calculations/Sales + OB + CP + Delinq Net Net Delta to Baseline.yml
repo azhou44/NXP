@@ -1,0 +1,6 @@
+unique_name: Sales + OB + CP + Delinq Net Net Delta to Baseline
+object_type: metric_calc
+label: Sales + OB + CP + Delinq Net Net Delta to Baseline
+expression: |-
+  [Measures].[Sales + OB + CP + Delinq Net Net] - [Measures].[Sales + OB + CP + Delinq Net Net Baseline]
+format: $#,##0;($#,##0)

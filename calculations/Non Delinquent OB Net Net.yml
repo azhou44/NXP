@@ -1,0 +1,5 @@
+unique_name: Non Delinquent OB Net Net
+object_type: metric_calc
+label: Non Delinquent OB Net Net
+expression: '[Measures].[OB non-Delinq Net Net]'
+format: $#,##0;($#,##0)

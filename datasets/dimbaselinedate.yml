@@ -1,0 +1,29 @@
+unique_name: dimbaselinedate
+object_type: dataset
+label: dimbaselinedate
+columns:
+  - name: Run_Date
+    data_type: date
+  - name: Query_Dt
+    data_type: date
+connection_id: con_1dp_scobi_cubes_dev_bpi
+sql: |-
+  SELECT DISTINCT
+   rd.RUN_DATE
+   ,dt.Query_Dt
+  FROM
+   (
+    SELECT  
+     AL1.Run_Date AS Run_Date
+    FROM 
+     `1dp_scobi_cubes_dev`.BPI.DimRunDate AL1
+   ) rd
+   INNER JOIN
+   (
+    SELECT DISTINCT
+     AL1.Query_Dt
+    FROM 
+     `1dp_scobi_cubes_dev`.BPI.DimDate AL1 
+   ) dt
+    --ON rd.Run_Date >= dt.Query_Dt
+    ON (rd.RUN_DATE >= DATEADD(day,-1, dt.Query_Dt))

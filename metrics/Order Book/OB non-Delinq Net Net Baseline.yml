@@ -1,0 +1,9 @@
+unique_name: OB non-Delinq Net Net Baseline
+object_type: metric
+label: OB non-Delinq Net Net Baseline
+description: OrderBook_baseline
+calculation_method: sum
+column: Non_Delq_Net_Net_In_Gc
+dataset: vw_factob_rddunconfirm_baseline
+format: $#,##0;($#,##0)
+unrelated_dimensions_handling: repeat

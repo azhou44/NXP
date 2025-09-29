@@ -1,0 +1,10 @@
+unique_name: factregionrules_row_security
+object_type: row_security
+label: factregionrules_row_security
+dataset: factregionrules
+filter_key_column: BaseFullfillRegionStr
+id_type: user
+ids_column: FullUserID
+scope: all
+secure_totals: false
+use_filter_key: false

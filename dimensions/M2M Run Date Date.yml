@@ -1,0 +1,31 @@
+unique_name: M2M Run Date Date
+object_type: dimension
+label: M2M Run Date Date
+hierarchies:
+  - unique_name: M2M Run Date Date Hierarchy
+    label: M2M Run Date Date Hierarchy
+    levels:
+      - unique_name: M2M Run Date Date Level
+level_attributes:
+  - unique_name: M2M Run Date Date Level
+    label: M2M Run Date Date Level
+    contains_unique_names: false
+    dataset: M2MRunDateDate_DS
+    is_unique_key: false
+    key_columns:
+      - Query_Dt
+    name_column: Query_Dt
+relationships:
+  - unique_name: M2MRunDateDate_DS_RUN_DATE_to_Run Date_Run Date
+    from:
+      dataset: M2MRunDateDate_DS
+      hierarchy: M2M Run Date Date Hierarchy
+      join_columns:
+        - RUN_DATE
+      level: M2M Run Date Date Level
+    M2M: true
+    to:
+      dimension: Run Date
+      level: Run Date
+    type: embedded
+type: standard

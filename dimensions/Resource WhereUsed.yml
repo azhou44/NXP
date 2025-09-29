@@ -1,0 +1,60 @@
+unique_name: Resource WhereUsed
+object_type: dimension
+label: Resource WhereUsed
+hierarchies:
+  - unique_name: Resource WhereUsed Hirearchy
+    label: Resource WhereUsed Hirearchy
+    levels:
+      - unique_name: Resource Key
+        is_hidden: true
+        secondary_attributes:
+          - unique_name: WhereUsed Location Code
+            label: WhereUsed Location Code
+            contains_unique_names: false
+            dataset: dimresourcewhereused
+            is_unique_key: false
+            key_columns:
+              - Location_Code
+            name_column: Location_Code
+          - unique_name: WhereUsed Location Description
+            label: WhereUsed Location Description
+            contains_unique_names: false
+            dataset: dimresourcewhereused
+            is_unique_key: false
+            key_columns:
+              - Location_Description
+            name_column: Location_Description
+          - unique_name: WhereUsed Resource Class
+            label: WhereUsed Resource Class
+            contains_unique_names: false
+            dataset: dimresourcewhereused
+            is_unique_key: false
+            key_columns:
+              - Resource_Class
+            name_column: Resource_Class
+          - unique_name: WhereUsed Resource Key
+            label: WhereUsed Resource Key
+            contains_unique_names: false
+            dataset: dimresourcewhereused
+            is_unique_key: false
+            key_columns:
+              - RESOURCE_KEY
+            name_column: RESOURCE_KEY
+          - unique_name: WhereUsed Resource Name
+            label: WhereUsed Resource Name
+            contains_unique_names: false
+            dataset: dimresourcewhereused
+            is_unique_key: false
+            key_columns:
+              - Resource_Name
+            name_column: Resource_Name
+level_attributes:
+  - unique_name: Resource Key
+    label: Resource Key
+    contains_unique_names: false
+    dataset: dimresourcewhereused
+    is_unique_key: false
+    key_columns:
+      - RESOURCE_KEY
+    name_column: RESOURCE_KEY
+type: standard

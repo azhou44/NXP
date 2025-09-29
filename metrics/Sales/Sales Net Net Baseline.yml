@@ -1,0 +1,9 @@
+unique_name: Sales Net Net Baseline
+object_type: metric
+label: Sales Net Net Baseline
+description: FactSales_baseline
+calculation_method: sum
+column: Sales_Net_Net_In_Gc
+dataset: vw_factsales_baseline
+format: $#,##0;-$#,##0
+unrelated_dimensions_handling: repeat

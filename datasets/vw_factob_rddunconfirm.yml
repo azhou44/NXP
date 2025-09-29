@@ -1,0 +1,320 @@
+unique_name: vw_factob_rddunconfirm
+object_type: dataset
+label: vw_factob_rddunconfirm
+description: FactOrderBook
+columns:
+  - name: Sales_Order
+    data_type: string
+  - name: Sales_Order_Item
+    data_type: int
+  - name: Part_12NC
+    data_type: string
+  - name: Snapshot_Week_Number_Yyyyww
+    data_type: int
+  - name: Snapshot_Date
+    data_type: date
+  - name: Sold_To
+    data_type: string
+  - name: Bill_To
+    data_type: string
+  - name: Payer
+    data_type: string
+  - name: Ship_To
+    data_type: string
+  - name: Sales_Organization
+    data_type: string
+  - name: Billing_Type
+    data_type: string
+  - name: DATEVALUE
+    data_type: date
+  - name: DATEVALUEALIAS
+    data_type: date
+  - name: Date_Type
+    data_type: string
+  - name: Blend_Origin
+    data_type: string
+  - name: Qty
+    data_type: decimal(27,3)
+  - name: Net_In_Gc
+    data_type: decimal(27,2)
+  - name: Net_Net_In_Gc
+    data_type: decimal(30,2)
+  - name: Net_ASP_Gc
+    data_type: double
+  - name: Net_Net_ASP_Gc
+    data_type: double
+  - name: Delq_Qty
+    data_type: decimal(27,3)
+  - name: Delq_Net_In_Gc
+    data_type: decimal(27,2)
+  - name: Delq_Net_Net_In_Gc
+    data_type: decimal(27,2)
+  - name: Non_Delq_Qty
+    data_type: decimal(27,3)
+  - name: Non_Delq_Net_In_Gc
+    data_type: decimal(27,2)
+  - name: Non_Delq_Net_Net_In_Gc
+    data_type: decimal(27,2)
+  - name: Unconfirm_FSL_Qty
+    data_type: decimal(27,3)
+  - name: Unconfirm_FSL_Net_Net_In_Gc
+    data_type: decimal(27,2)
+  - name: Is_Requested_Date_Delq_Flag
+    data_type: string
+  - name: Requested_Delq_Qty
+    data_type: decimal(27,3)
+  - name: Requested_Delq_Net_In_Gc
+    data_type: decimal(27,2)
+  - name: Requested_Delq_Net_Net_In_Gc
+    data_type: decimal(27,2)
+  - name: Sales_Document_Type
+    data_type: string
+  - name: Production_Month_Begin_Date
+    data_type: date
+  - name: Fiscal_Month_Begin_Date
+    data_type: date
+  - name: Production_Month_End_Date
+    data_type: date
+  - name: Fiscal_Month_End_Date
+    data_type: date
+  - name: Delq_Prev_Month_Planning_Qty
+    data_type: decimal(27,3)
+  - name: Delq_Prev_Month_Fiscal_Qty
+    data_type: decimal(27,3)
+  - name: Delq_Prev_Month_Planning_Qty_Net_Net_In_Gc
+    data_type: decimal(27,2)
+  - name: Delq_Prev_Month_Fiscal_Qty_Net_Net_In_Gc
+    data_type: decimal(27,2)
+  - name: Cur_Month_Planning_Qty
+    data_type: decimal(27,3)
+  - name: Cur_Month_Fiscal_Qty
+    data_type: decimal(27,3)
+  - name: Cur_Month_Planning_Net_Net_In_Gc
+    data_type: decimal(27,2)
+  - name: Cur_Month_Fiscal_Net_Net_In_Gc
+    data_type: decimal(27,2)
+  - name: CustomerMaterial_FK
+    data_type: string
+  - name: BLANK
+    data_type: string
+connection_id: con_1dp_scobi_cubes_dev_bpi
+sql: >-
+  SELECT *, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12NC, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK
+     FROM `1dp_scobi_cubes_dev`.BPI.FactOB_RDD 
+  WHERE Snapshot_Date IN 
+
+  (
+
+  SELECT Run_Date
+
+  FROM `1dp_scobi_cubes_dev`.BPI.DimRunDate
+
+  WHERE Week_Start_Date = (select max(Week_Start_Date) from
+  `1dp_scobi_cubes_dev`.BPI.DimRunDate)
+
+  )
+
+  UNION ALL
+
+  SELECT *, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12NC, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK
+      FROM `1dp_scobi_cubes_dev`.BPI.FactOB_UnConfirm
+   WHERE Snapshot_Date IN 
+  (
+
+  SELECT Run_Date
+
+  FROM `1dp_scobi_cubes_dev`.BPI.DimRunDate
+
+  WHERE Week_Start_Date = (select max(Week_Start_Date) from
+  `1dp_scobi_cubes_dev`.BPI.DimRunDate)
+
+  )
+
+  UNION ALL
+
+  SELECT *, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12NC, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK 
+     FROM `1dp_scobi_cubes_dev`.BPI.FactOB_CDD
+   WHERE Snapshot_Date IN 
+  (
+
+  SELECT Run_Date
+
+  FROM `1dp_scobi_cubes_dev`.BPI.DimRunDate
+
+  WHERE Week_Start_Date = (select max(Week_Start_Date) from
+  `1dp_scobi_cubes_dev`.BPI.DimRunDate)
+
+  )
+
+  UNION ALL
+
+  SELECT *, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12NC, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK
+      FROM `1dp_scobi_cubes_dev`.BPI.FactOB_RGID 
+  WHERE Snapshot_Date IN 
+
+  (
+
+  SELECT Run_Date
+
+  FROM `1dp_scobi_cubes_dev`.BPI.DimRunDate
+
+  WHERE Week_Start_Date = (select max(Week_Start_Date) from
+  `1dp_scobi_cubes_dev`.BPI.DimRunDate)
+
+  )
+
+  UNION ALL
+
+  SELECT *, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12NC, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK  
+      FROM `1dp_scobi_cubes_dev`.BPI.FactOB_CGID 
+  WHERE Snapshot_Date IN 
+
+  (
+
+  SELECT Run_Date
+
+  FROM `1dp_scobi_cubes_dev`.BPI.DimRunDate
+
+  WHERE Week_Start_Date = (select max(Week_Start_Date) from
+  `1dp_scobi_cubes_dev`.BPI.DimRunDate)
+
+  )
+
+  UNION ALL
+
+  SELECT *, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12NC, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK 
+     FROM `1dp_scobi_cubes_dev`.BPI.FactOB_CDD
+   WHERE Snapshot_Date IN 
+  (
+
+  SELECT Run_Date
+
+  FROM `1dp_scobi_cubes_dev`.BPI.DimRunDate
+
+  WHERE Week_Start_Date <> (select max(Week_Start_Date) from
+  `1dp_scobi_cubes_dev`.BPI.DimRunDate)
+
+  )
+
+  UNION ALL
+
+  SELECT *, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12NC, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK  
+      FROM `1dp_scobi_cubes_dev`.BPI.FactOB_CGID 
+  WHERE Snapshot_Date IN 
+
+  (
+
+  SELECT Run_Date
+
+  FROM `1dp_scobi_cubes_dev`.BPI.DimRunDate
+
+  WHERE Week_Start_Date <> (select max(Week_Start_Date) from
+  `1dp_scobi_cubes_dev`.BPI.DimRunDate)
+
+  )
+
+  UNION ALL
+
+  SELECT *, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12NC, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK
+     FROM `1dp_scobi_cubes_dev`.BPI.FactOB_RDD 
+  WHERE Snapshot_Date IN 
+
+  (
+
+  SELECT Run_Date
+
+  FROM `1dp_scobi_cubes_dev`.BPI.DimRunDate
+
+  WHERE Week_Start_Date <> (select max(Week_Start_Date) from
+  `1dp_scobi_cubes_dev`.BPI.DimRunDate)
+
+  )
+
+  UNION ALL
+
+  SELECT *, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12NC, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK
+      FROM `1dp_scobi_cubes_dev`.BPI.FactOB_RGID
+  WHERE Snapshot_Date IN 
+
+  (
+
+  SELECT Run_Date
+
+  FROM `1dp_scobi_cubes_dev`.BPI.DimRunDate
+
+  WHERE Week_Start_Date <> (select max(Week_Start_Date) from
+  `1dp_scobi_cubes_dev`.BPI.DimRunDate)
+
+  )
+
+  UNION ALL
+
+  SELECT *, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12NC, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK
+      FROM `1dp_scobi_cubes_dev`.BPI.FactOB_UnConfirm
+   WHERE Snapshot_Date IN 
+  (
+
+  SELECT Run_Date
+
+  FROM `1dp_scobi_cubes_dev`.BPI.DimRunDate
+
+  WHERE Week_Start_Date <> (select max(Week_Start_Date) from
+  `1dp_scobi_cubes_dev`.BPI.DimRunDate)
+
+  )
+
+  UNION ALL
+
+  SELECT *, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12NC, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK
+      FROM `1dp_scobi_cubes_dev`.BPI.VW_FactOB_RDDUnConfirm
+   WHERE Snapshot_Date IN 
+  (
+
+  SELECT Run_Date
+
+  FROM `1dp_scobi_cubes_dev`.BPI.DimRunDate
+
+  WHERE Week_Start_Date <> (select max(Week_Start_Date) from
+  `1dp_scobi_cubes_dev`.BPI.DimRunDate)
+
+  )
+
+  UNION ALL
+
+  SELECT *, CONCAT(TRIM(COALESCE(Sold_To, '')), '|', TRIM(COALESCE(Ship_To,
+  '')), '|', TRIM(COALESCE(Part_12NC, ''))) AS CustomerMaterial_FK, NULL AS
+  BLANK
+      FROM `1dp_scobi_cubes_dev`.BPI.VW_FactOB_RDDUnConfirm
+   WHERE Snapshot_Date IN 
+  (
+
+  SELECT Run_Date
+
+  FROM `1dp_scobi_cubes_dev`.BPI.DimRunDate
+
+  WHERE Week_Start_Date = (select max(Week_Start_Date) from
+  `1dp_scobi_cubes_dev`.BPI.DimRunDate)
+
+  )

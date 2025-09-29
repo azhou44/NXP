@@ -1,0 +1,18 @@
+unique_name: Date Type
+object_type: dimension
+label: Date Type
+hierarchies:
+  - unique_name: Date Type Hirearchy
+    label: Date Type Hirearchy
+    levels:
+      - unique_name: Date Type
+level_attributes:
+  - unique_name: Date Type
+    label: Date Type
+    contains_unique_names: false
+    dataset: dimobtype_ds
+    is_unique_key: false
+    key_columns:
+      - DateType
+    name_column: DateType
+type: standard

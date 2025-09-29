@@ -1,0 +1,10 @@
+unique_name: factregionrules
+object_type: dataset
+label: factregionrules
+columns:
+  - name: FullUserID
+    data_type: string
+  - name: BaseFullfillRegionStr
+    data_type: string
+connection_id: con_1dp_scobi_cubes_dev_bpi
+table: factregionrules

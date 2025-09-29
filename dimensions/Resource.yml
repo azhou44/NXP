@@ -1,0 +1,34 @@
+unique_name: Resource
+object_type: dimension
+label: Resource
+description: '- BPI.VW_DimResource'
+hierarchies:
+  - unique_name: OperType-Class-Name Resource
+    label: OperType-Class-Name Resource
+    levels:
+      - unique_name: Operation Type
+      - unique_name: Resource Class
+      - unique_name: RESOURCE_KEY
+level_attributes:
+  - unique_name: Operation Type
+    label: Operation Type
+    contains_unique_names: false
+    dataset: vw_dimresource
+    key_columns:
+      - OPERATION_TYPE
+    name_column: OPERATION_TYPE
+  - unique_name: Resource Class
+    label: Resource Class
+    contains_unique_names: false
+    dataset: vw_dimresource
+    key_columns:
+      - Resource_Class
+    name_column: Resource_Class
+  - unique_name: RESOURCE_KEY
+    label: RESOURCE_KEY
+    contains_unique_names: false
+    dataset: vw_dimresource
+    key_columns:
+      - RESOURCE_KEY
+    name_column: RESOURCE_KEY
+type: standard

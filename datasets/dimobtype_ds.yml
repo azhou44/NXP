@@ -1,0 +1,19 @@
+unique_name: dimobtype_ds
+object_type: dataset
+label: dimobtype_ds
+columns:
+  - name: DateType
+    data_type: string
+connection_id: con_1dp_scobi_cubes_dev_bpi
+sql: |-
+  SELECT 'CGID' AS DateType
+   UNION ALL
+  SELECT 'UnConfirm' AS DateType
+   UNION ALL
+  SELECT 'Confirmed' AS DateType
+   UNION ALL
+  SELECT 'RGID' AS DateType
+   UNION ALL
+  SELECT 'Requested' AS DateType
+   UNION ALL
+  SELECT 'Requested and UnConfirm' AS DateType

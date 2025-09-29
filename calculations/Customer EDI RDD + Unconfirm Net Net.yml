@@ -1,0 +1,9 @@
+unique_name: Customer EDI RDD + Unconfirm Net Net
+object_type: metric_calc
+label: Customer EDI RDD + Unconfirm Net Net
+expression: |-
+  (
+      ([Customer Material].[CP Label].&[EDI]),
+      [Measures].[RDD w Delinq + Unconfirm Net Net]
+      )
+mdx_aggregate_function: SUM

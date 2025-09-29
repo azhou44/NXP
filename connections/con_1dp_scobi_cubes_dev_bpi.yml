@@ -1,6 +1,0 @@
-unique_name: con_1dp_scobi_cubes_dev_bpi
-object_type: connection
-label: con_1dp_scobi_cubes_dev_bpi
-as_connection: atscale_pilot_compute_m
-database: 1dp_scobi_cubes_dev
-schema: bpi

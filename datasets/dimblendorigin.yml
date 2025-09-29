@@ -1,8 +1,0 @@
-unique_name: dimblendorigin
-object_type: dataset
-label: dimblendorigin
-columns:
-  - name: Blend_Origin
-    data_type: string
-connection_id: con_1dp_scobi_cubes_dev_bpi
-table: dimblendorigin
